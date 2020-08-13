@@ -24,9 +24,6 @@
           </span>
         </slot>
 
-        <slot name="search" v-bind="scope.search">
-          <input class="vs__search" v-bind="scope.search.attributes" v-on="scope.search.events">
-        </slot>
       </div>
 
       <div class="vs__actions" ref="actions">
@@ -55,6 +52,7 @@
     <transition :name="transition">
       <ul ref="dropdownMenu" v-if="dropdownOpen" :id="`vs${uid}__listbox`" :key="`vs${uid}__listbox`" class="vs__dropdown-menu" role="listbox" @mousedown.prevent="onMousedown" @mouseup="onMouseUp" v-append-to-body>
         <slot name="list-header" v-bind="scope.listHeader" />
+        <input id="focusSearch" v-bind="scope.search.attributes" v-on="scope.search.events" v-on:click="focusSearch"/>
         <li
           role="option"
           v-for="(option, index) in filteredOptions"
@@ -637,6 +635,9 @@
     },
 
     methods: {
+      focusSearch(){
+          document.getElementById('focusSearch').focus();
+      },
       /**
        * Make sure tracked value is
        * one option if possible.

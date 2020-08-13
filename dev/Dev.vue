@@ -15,7 +15,8 @@ export default {
     selected: null,
     config: {
       options: countries
-    }
+    },
+    searchable: false,
   })
 };
 </script>
