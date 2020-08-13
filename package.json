@@ -13,9 +13,9 @@
   "license": "MIT",
   "prepare": "npm run build",
   "scripts": {
-    "serve": "webpack-dev-server --config build/webpack.dev.conf.js --hot --progress -d",
+    "serve": "webpack-dev-server --config src/webpack.dev.conf.js --hot --progress -d",
     "serve:docs": "cd docs && yarn serve",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress",
+    "build": "cross-env NODE_ENV=production webpack --config src/webpack.prod.conf.js --progress",
     "build:docs": "cd docs && yarn build",
     "build:preview": "cd docs && yarn build",
     "test": "jest",
